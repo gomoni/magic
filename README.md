@@ -1,6 +1,6 @@
 # magic
 
-Opiniated `libmagic` Go wrapper, does not allow any configuration and operates on `io.Reader` only.
+Opinionated `libmagic` Go wrapper, does not allow any configuration and operates on `io.Reader` only.
 
 ## TODO
 
