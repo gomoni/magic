@@ -8,6 +8,10 @@ import (
 
 func TestMagic(t *testing.T) {
 
+    if _, err := os.Stat("/etc/passwd"); os.IsNotExist(err) {
+        t.Skip("/etc/passwd does not exists")
+    }
+
     m, err := New()
     if err != nil {
         t.Fatal(err)
@@ -28,6 +32,9 @@ func TestMagic(t *testing.T) {
     if mime != "text/plain; charset=us-ascii" {
         t.Fatalf("Wrong mime type, expected 'text/plain; charset-us-ascii', got '%s'", mime)
     }
-    fmt.Printf("magic /etc/passwd: %s\n", mime)
+
+    if testing.Verbose() {
+        fmt.Printf("magic /etc/passwd: %s\n", mime)
+    }
 
 }
